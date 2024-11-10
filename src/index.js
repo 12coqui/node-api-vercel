@@ -1,7 +1,7 @@
 // index.js
 require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
 const app = express();
 const PORT = 4000;
@@ -29,17 +29,17 @@ app.post('/stats', async (req, res) => {
 		res.status(500).json({ message: 'Internal Server Error' });
 	} */
 });
+app.listen(PORT, () => {
+	console.log(`API listening on PORT ${PORT} `);
+});
 // Connect to MongoDB
-mongoose
+/* mongoose
 	.connect(process.env.MONGODB_URI)
 	.then(() => {
-		app.listen(PORT, () => {
-			console.log(`API listening on PORT ${PORT} `);
-		});
 	})
 	.catch(err => {
 		console.log(err);
-	});
+	}); */
 
 // Export the Express API
 module.exports = app;
